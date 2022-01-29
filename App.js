@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar'
-import { Box, NativeBaseProvider } from 'native-base'
+import { NativeBaseProvider } from 'native-base'
+import Header from './src/components/layout/Header'
+import AppStack from './src/stacks/AppStack'
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <Box py={10}>Hello World</Box>
-      <StatusBar style="auto" />
+      <Header />
+      <AppStack />
     </NativeBaseProvider>
   )
 }
