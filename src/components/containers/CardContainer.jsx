@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, HStack, Image, Text, VStack, Button } from 'native-base'
 
-const MovieContainer = ({ movie }) => {
+const CardContainer = ({ movie }) => {
   return (
-    <Box width="60%">
+    <Box width="60%" py="2">
       <HStack space="3" mx="4" justifyContent="space-between">
         <Image source={{ uri: movie.posterPath }} alt="movie" size="110px" />
         <VStack w="100%">
@@ -19,4 +19,4 @@ const MovieContainer = ({ movie }) => {
   )
 }
 
-export default MovieContainer
+export default CardContainer
