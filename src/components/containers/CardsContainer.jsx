@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box } from 'native-base'
 import CardsList from '../lists/CardsList'
+import { getPopularMovies } from '../../services/moviesApi'
 
 const movies = [
   {
@@ -55,9 +56,20 @@ const movies = [
 ]
 
 const CardsContainer = ({ selected }) => {
+  const [data, setData] = useState([])
+
+  const getData = async () => {
+    const response = await getPopularMovies()
+    setData(response.results)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <Box>
-      <CardsList data={movies} />
+      <CardsList data={data} />
     </Box>
   )
 }
