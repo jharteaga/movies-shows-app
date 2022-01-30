@@ -9,6 +9,7 @@ const CardsList = ({ data }) => {
       renderItem={({ item }) => <CardContainer key={item.id} movie={item} />}
       keyExtractor={(item) => item.id}
       showsVerticalScrollIndicator={false}
+      mb={5}
     />
   )
 }

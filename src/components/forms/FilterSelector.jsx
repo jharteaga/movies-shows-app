@@ -6,15 +6,13 @@ const FilterSelector = ({ onChange, selected }) => {
     <Center py={5}>
       <Select
         selectedValue={selected}
-        width="40%"
+        width="50%"
         fontSize={16}
-        minWidth="50%"
         _selectedItem={{
           backgroundColor: '#23776d',
           _text: { color: '#fff' },
           endIcon: <CheckIcon size="6" color="#fff" />
         }}
-        mt={1}
         onValueChange={(itemSelected) => onChange(itemSelected)}
       >
         <Select.Item label="now_playing" value="now_playing" />

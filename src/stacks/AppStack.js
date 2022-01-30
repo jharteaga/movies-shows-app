@@ -11,7 +11,7 @@ const AppStack = () => {
         initialRouteName="Movies"
         screenOptions={{
           tabBarIndicatorStyle: { backgroundColor: '#2c3e50', height: 3 },
-          tabBarLabelStyle: { textTransform: 'none', fontSize: 16 }
+          tabBarLabelStyle: { textTransform: 'none', fontSize: 13 }
         }}
       >
         <Tab.Screen
