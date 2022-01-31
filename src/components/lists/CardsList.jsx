@@ -1,6 +1,5 @@
 import React from 'react'
 import { FlatList } from 'native-base'
-import CardContainer from '../containers/CardContainer'
 
 const CardsList = ({ data, render }) => {
   return (
@@ -9,7 +8,7 @@ const CardsList = ({ data, render }) => {
       renderItem={({ item }) => render(item)}
       keyExtractor={(item) => item.id}
       showsVerticalScrollIndicator={false}
-      mb={5}
+      contentContainerStyle={{ paddingBottom: 10 }}
     />
   )
 }

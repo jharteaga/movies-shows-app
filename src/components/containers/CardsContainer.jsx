@@ -24,7 +24,7 @@ const CardsContainer = ({ type, selected }) => {
   }, [selected])
 
   return (
-    <Box>
+    <Box style={{ flex: 1 }}>
       {loading ? (
         <Loading />
       ) : (

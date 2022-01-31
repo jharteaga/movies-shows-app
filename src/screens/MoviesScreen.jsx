@@ -8,7 +8,7 @@ const MoviesScreen = () => {
 
   return (
     <>
-      <Box style={{ flex: 0.9 }}>
+      <Box style={{ flex: 1 }}>
         <FilterSelector
           onChange={setSelected}
           selected={selected}
