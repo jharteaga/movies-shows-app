@@ -17,27 +17,26 @@ const ShowDetails = ({ route }) => {
   }, [])
 
   return (
-    <Box>
+    <>
       {details?.id && (
-        <Center>
-          <Text py={10} mx={8} fontSize="xl" bold>
+        <Box mx={10}>
+          <Text alignSelf="center" py={10} fontSize="xl" bold>
             {details.title}
           </Text>
           <Image
+            alignSelf="center"
             source={{ uri: `${IMAGE_BASE_URL}${details.poster_path}` }}
             alt="movie"
             size="2xl"
           />
-          <Text py={7} mx={8}>
-            {details.overview}
-          </Text>
-          <Text ml={-8} fontSize="xs">
+          <Text py={7}>{details.overview}</Text>
+          <Text fontSize="xs">
             Popularity: {details.popularity} | Release Date:{' '}
             {details.release_date}
           </Text>
-        </Center>
+        </Box>
       )}
-    </Box>
+    </>
   )
 }
 
