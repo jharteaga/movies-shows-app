@@ -1,36 +1,30 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { MoviesScreen, SearchScreen, TvShowsScreen } from '../screens'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { ShowDetails } from '../screens'
+import TabStack from './TabStack'
 
-const Tab = createMaterialTopTabNavigator()
+const Stack = createNativeStackNavigator()
 
 const AppStack = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Movies"
-        screenOptions={{
-          tabBarIndicatorStyle: { backgroundColor: '#2c3e50', height: 3 },
-          tabBarLabelStyle: { textTransform: 'none', fontSize: 13 }
-        }}
-      >
-        <Tab.Screen
-          name="Movies"
-          options={{ tabBarLabel: 'Movies' }}
-          component={MoviesScreen}
+      <Stack.Navigator initialRouteName="TabNavigator">
+        <Stack.Screen
+          name="TabNavigator"
+          component={TabStack}
+          options={{
+            headerShown: false
+          }}
         />
-        <Tab.Screen
-          name="Search"
-          component={SearchScreen}
-          options={{ tabBarLabel: 'Search Results' }}
+        <Stack.Screen
+          name="ShowDetails"
+          component={ShowDetails}
+          options={{
+            headerBackTitle: 'Back to List'
+          }}
         />
-        <Tab.Screen
-          name="TvShows"
-          title="TV"
-          component={TvShowsScreen}
-          options={{ tabBarLabel: 'TV Shows' }}
-        />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }

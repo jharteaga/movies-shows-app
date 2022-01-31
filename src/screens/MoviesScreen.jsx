@@ -7,10 +7,12 @@ const MoviesScreen = () => {
   const [selected, setSelected] = useState('popular')
 
   return (
-    <Box style={{ flex: 0.9 }}>
-      <FilterSelector onChange={setSelected} selected={selected} />
-      <CardsContainer selected={selected} />
-    </Box>
+    <>
+      <Box style={{ flex: 0.9 }}>
+        <FilterSelector onChange={setSelected} selected={selected} />
+        <CardsContainer selected={selected} />
+      </Box>
+    </>
   )
 }
 

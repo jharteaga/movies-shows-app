@@ -1,8 +1,11 @@
 import React from 'react'
 import { Box, HStack, Image, Text, VStack, Button } from 'native-base'
+import { useNavigation } from '@react-navigation/native'
 import { IMAGE_BASE_URL } from '../../config/apiConfig'
 
 const CardContainer = ({ movie }) => {
+  const navigation = useNavigation()
+
   return (
     <Box width="60%" py="2">
       <HStack space="3" mx="4" justifyContent="space-between">
@@ -17,7 +20,9 @@ const CardContainer = ({ movie }) => {
           </Text>
           <Text>Popularity: {movie.popularity}</Text>
           <Text>Release Date: {movie.release_date}</Text>
-          <Button size="lg">More Details</Button>
+          <Button size="lg" onPress={() => navigation.navigate('ShowDetails')}>
+            More Details
+          </Button>
         </VStack>
       </HStack>
     </Box>
