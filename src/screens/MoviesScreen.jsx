@@ -9,8 +9,12 @@ const MoviesScreen = () => {
   return (
     <>
       <Box style={{ flex: 0.9 }}>
-        <FilterSelector onChange={setSelected} selected={selected} />
-        <CardsContainer selected={selected} />
+        <FilterSelector
+          onChange={setSelected}
+          selected={selected}
+          type="movie"
+        />
+        <CardsContainer selected={selected} type="movie" />
       </Box>
     </>
   )

@@ -1,8 +1,8 @@
 import { apiAxios, params } from './api'
 
-export const getMovies = async (filter) => {
+export const getMovies = async (type, filter) => {
   try {
-    const response = await apiAxios.get(`/movie/${filter}`, { params })
+    const response = await apiAxios.get(`/${type}/${filter}`, { params })
     return response.data
   } catch (error) {
     console.error(error)
@@ -10,9 +10,9 @@ export const getMovies = async (filter) => {
   }
 }
 
-export const getMovie = async (id) => {
+export const getMovie = async (type, id) => {
   try {
-    const response = await apiAxios.get(`/movie/${id}`, { params })
+    const response = await apiAxios.get(`/${type}/${id}`, { params })
     return response.data
   } catch (error) {
     console.error(error)

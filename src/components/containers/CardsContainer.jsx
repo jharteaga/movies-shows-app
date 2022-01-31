@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Box } from 'native-base'
 import CardsList from '../lists/CardsList'
-import { getMovies } from '../../services/moviesApi'
 import Loading from '../layout/Loading'
+import { getMovies } from '../../services/moviesApi'
 
-const CardsContainer = ({ selected }) => {
+const CardsContainer = ({ type, selected }) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
 
   const getData = async () => {
-    const response = await getMovies(selected)
+    const response = await getMovies(type, selected)
     setData(response.results)
   }
 

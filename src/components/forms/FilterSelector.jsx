@@ -1,7 +1,12 @@
 import React from 'react'
 import { Center, CheckIcon, Select } from 'native-base'
 
-const FilterSelector = ({ onChange, selected }) => {
+const options = {
+  movie: ['now_playing', 'popular', 'top_rated', 'upcoming'],
+  tv: ['airing_today', 'on_the_air', 'popular', 'top_rated']
+}
+
+const FilterSelector = ({ onChange, selected, type }) => {
   return (
     <Center py={5}>
       <Select
@@ -15,10 +20,9 @@ const FilterSelector = ({ onChange, selected }) => {
         }}
         onValueChange={(itemSelected) => onChange(itemSelected)}
       >
-        <Select.Item label="now_playing" value="now_playing" />
-        <Select.Item label="popular" value="popular" />
-        <Select.Item label="top_rated" value="top_rated" />
-        <Select.Item label="upcoming" value="upcoming" />
+        {options[type].map((item) => (
+          <Select.Item key={item} label={item} value={item} />
+        ))}
       </Select>
     </Center>
   )
