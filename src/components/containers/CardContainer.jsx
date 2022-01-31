@@ -3,7 +3,7 @@ import { Box, HStack, Image, Text, VStack, Button } from 'native-base'
 import { useNavigation } from '@react-navigation/native'
 import { IMAGE_BASE_URL } from '../../config/apiConfig'
 
-const CardContainer = ({ movie }) => {
+const CardContainer = ({ movie, type }) => {
   const navigation = useNavigation()
 
   return (
@@ -16,16 +16,20 @@ const CardContainer = ({ movie }) => {
         />
         <VStack w="100%">
           <Text fontSize="md" bold>
-            {movie.title}
+            {type === 'movie' ? movie.title : movie.name}
           </Text>
           <Text>Popularity: {movie.popularity}</Text>
-          <Text>Release Date: {movie.release_date}</Text>
+          <Text>
+            Release Date:{' '}
+            {type === 'movie' ? movie.release_date : movie.first_air_date}
+          </Text>
           <Button
             size="lg"
             onPress={() =>
               navigation.navigate('ShowDetails', {
                 id: movie.id,
-                label: movie.title
+                label: type === 'movie' ? movie.title : movie.name,
+                type
               })
             }
           >
