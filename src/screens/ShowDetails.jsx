@@ -22,7 +22,6 @@ const ShowDetails = ({ route }) => {
         <Box mx={10}>
           <Text alignSelf="center" py={10} fontSize="xl" bold>
             {type === 'movie' ? details.title : details.name}
-            {details.id}
           </Text>
           <Image
             alignSelf="center"

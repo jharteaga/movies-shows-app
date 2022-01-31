@@ -1,5 +1,6 @@
 import React from 'react'
-import { Center, CheckIcon, Select } from 'native-base'
+import { Ionicons } from '@expo/vector-icons'
+import { Center, CheckIcon, Icon, Select } from 'native-base'
 
 const options = {
   movie: ['now_playing', 'popular', 'top_rated', 'upcoming'],
@@ -16,12 +17,15 @@ const FilterSelector = ({ onChange, selected, type }) => {
         _selectedItem={{
           backgroundColor: '#23776d',
           _text: { color: '#fff' },
-          endIcon: <CheckIcon size="6" color="#fff" />
+          endIcon: <CheckIcon size="5" color="#fff" />
         }}
         onValueChange={(itemSelected) => onChange(itemSelected)}
+        dropdownIcon={
+          <Icon as={Ionicons} size="5" color="gray.500" name="chevron-down" />
+        }
       >
-        {options[type].map((item) => (
-          <Select.Item key={item} label={item} value={item} />
+        {options[type].map((item, index) => (
+          <Select.Item key={`${item}-${index}`} label={item} value={item} />
         ))}
       </Select>
     </Center>
