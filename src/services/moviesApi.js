@@ -9,3 +9,13 @@ export const getMovies = async (filter) => {
     throw error
   }
 }
+
+export const getMovie = async (id) => {
+  try {
+    const response = await apiAxios.get(`/movie/${id}`, { params })
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}

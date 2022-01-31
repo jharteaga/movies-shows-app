@@ -20,7 +20,15 @@ const CardContainer = ({ movie }) => {
           </Text>
           <Text>Popularity: {movie.popularity}</Text>
           <Text>Release Date: {movie.release_date}</Text>
-          <Button size="lg" onPress={() => navigation.navigate('ShowDetails')}>
+          <Button
+            size="lg"
+            onPress={() =>
+              navigation.navigate('ShowDetails', {
+                id: movie.id,
+                label: movie.title
+              })
+            }
+          >
             More Details
           </Button>
         </VStack>
