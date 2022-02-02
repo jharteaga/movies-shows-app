@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { LogBox } from 'react-native'
 import { Box, Button, HStack, Icon, Input, Text } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
 import FilterSelector from './FilterSelector'
+
+LogBox.ignoreLogs(['NativeBase:'])
 
 const SearchForm = ({ onSubmit }) => {
   const [selected, setSelected] = useState('multi')
@@ -31,13 +34,14 @@ const SearchForm = ({ onSubmit }) => {
             as={<Ionicons name="search" />}
             size={5}
             ml="2"
-            color="#9d9da6"
+            color="#a9a9a9"
           />
         }
         placeholder="i.e. James Bond, CSI"
-        placeholderTextColor="#9d9da6"
+        placeholderTextColor="#a9a9a9"
         onChangeText={(text) => setQuery(text)}
         isRequired
+        borderWidth={1}
         borderColor={errorMsg ? 'red.600' : '#e4e4e7'}
       />
 

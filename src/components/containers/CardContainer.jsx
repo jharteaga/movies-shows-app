@@ -20,7 +20,11 @@ const CardContainer = ({ movie, type }) => {
               ? { uri: `${IMAGE_BASE_URL}${movie.poster_path}` }
               : placeholder
           }
-          alt="movie"
+          alt={
+            movie.title
+              ? `${movie.title} poster image`
+              : `${movie.name} poster image`
+          }
           size="110px"
         />
         <VStack w="100%">
