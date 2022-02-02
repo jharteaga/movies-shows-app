@@ -2,16 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Box } from 'native-base'
 import CardsList from '../lists/CardsList'
 import Loading from '../layout/Loading'
-import { getMovies } from '../../services/moviesApi'
+import { getMovies, searchMovies } from '../../services/moviesApi'
 import CardContainer from './CardContainer'
 
-const CardsContainer = ({ type, selected }) => {
+const CardsContainer = ({ type, selected, query = '' }) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const getData = async () => {
-    const response = await getMovies(type, selected)
-    setData(response.results)
+  const getData = async (type) => {
+    if (type !== 'search') {
+      const response = await getMovies(type, selected)
+      setData(response.results)
+    } else {
+      const response = await searchMovies(selected, query)
+      setData(response.results)
+    }
   }
 
   const renderCardContainer = (item) => (
@@ -20,8 +25,8 @@ const CardsContainer = ({ type, selected }) => {
 
   useEffect(() => {
     setLoading(true)
-    getData().then(() => setLoading(false))
-  }, [selected])
+    getData(type).then(() => setLoading(false))
+  }, [selected, query])
 
   return (
     <Box style={{ flex: 1 }}>

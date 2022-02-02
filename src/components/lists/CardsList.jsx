@@ -6,7 +6,7 @@ const CardsList = ({ data, render }) => {
     <FlatList
       data={data}
       renderItem={({ item }) => render(item)}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item) => item.id}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 10 }}
     />

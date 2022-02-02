@@ -1,5 +1,5 @@
-import { Box, Image, ScrollView, Text } from 'native-base'
 import React, { useEffect, useState } from 'react'
+import { Box, Image, ScrollView, Text } from 'native-base'
 import { IMAGE_BASE_URL } from '../config/apiConfig'
 import { getMovie } from '../services/moviesApi'
 
@@ -33,8 +33,10 @@ const ShowDetails = ({ route }) => {
             {details.overview ? details.overview : 'No overview available'}
           </Text>
           <Text mb={10} fontSize="xs">
-            Popularity: {details.popularity} | Release Date:{' '}
-            {type === 'movie' ? details.release_date : details.first_air_date}
+            Popularity: {details.popularity || 'Not available'} | Release Date:{' '}
+            {type === 'movie'
+              ? details.release_date || 'Not available'
+              : details.first_air_date || 'Not available'}
           </Text>
         </Box>
       )}

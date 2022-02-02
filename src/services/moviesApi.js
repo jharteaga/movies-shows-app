@@ -19,3 +19,15 @@ export const getMovie = async (type, id) => {
     throw error
   }
 }
+
+export const searchMovies = async (selected, query) => {
+  try {
+    const response = await apiAxios.get(`/search/${selected}`, {
+      params: { ...params, query }
+    })
+    return response.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}

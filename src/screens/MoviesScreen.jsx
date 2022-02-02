@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box } from 'native-base'
+import { Box, Center } from 'native-base'
 import FilterSelector from '../components/forms/FilterSelector'
 import CardsContainer from '../components/containers/CardsContainer'
 
@@ -9,11 +9,13 @@ const MoviesScreen = () => {
   return (
     <>
       <Box style={{ flex: 1 }}>
-        <FilterSelector
-          onChange={setSelected}
-          selected={selected}
-          type="movie"
-        />
+        <Center py={5}>
+          <FilterSelector
+            onChange={setSelected}
+            selected={selected}
+            type="movie"
+          />
+        </Center>
         <CardsContainer selected={selected} type="movie" />
       </Box>
     </>

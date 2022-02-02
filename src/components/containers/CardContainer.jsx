@@ -6,6 +6,10 @@ import { IMAGE_BASE_URL } from '../../config/apiConfig'
 const CardContainer = ({ movie, type }) => {
   const navigation = useNavigation()
 
+  if (type === 'search') {
+    type = movie?.title ? 'movie' : 'tv'
+  }
+
   return (
     <Box width="60%" py="2">
       <HStack space="3" mx="4" justifyContent="space-between">
@@ -21,7 +25,9 @@ const CardContainer = ({ movie, type }) => {
           <Text>Popularity: {movie.popularity}</Text>
           <Text>
             Release Date:{' '}
-            {type === 'movie' ? movie.release_date : movie.first_air_date}
+            {type === 'movie'
+              ? movie.release_date || 'Not available'
+              : movie.first_air_date || 'Not available'}
           </Text>
           <Button
             size="lg"
