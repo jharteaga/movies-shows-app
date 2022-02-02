@@ -12,7 +12,7 @@ const SearchScreen = () => {
         <SearchForm onSubmit={setFormData} />
         {!formData?.query && (
           <Center mt={20}>
-            <Text fontSize={25} bold ml={-5}>
+            <Text fontSize={20} bold ml={-8}>
               Please initiate a search
             </Text>
           </Center>
