@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box } from 'native-base'
+import { Box, Center, Text } from 'native-base'
 import CardsList from '../lists/CardsList'
 import Loading from '../layout/Loading'
 import { getMovies, searchMovies } from '../../services/moviesApi'
@@ -32,8 +32,14 @@ const CardsContainer = ({ type, selected, query = '' }) => {
     <Box style={{ flex: 1 }}>
       {loading ? (
         <Loading />
-      ) : (
+      ) : data.length ? (
         <CardsList data={data} render={renderCardContainer} />
+      ) : (
+        <Center mt={10}>
+          <Text fontSize={20} bold>
+            No Results
+          </Text>
+        </Center>
       )}
     </Box>
   )
