@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Box, Image, ScrollView, Text } from 'native-base'
 import { IMAGE_BASE_URL } from '../config/apiConfig'
 import { getMovie } from '../services/moviesApi'
+const placeholder = require('../../assets/no-image-thumb.jpeg')
 
 const ShowDetails = ({ route }) => {
   const [details, setDetails] = useState({})
@@ -25,7 +26,11 @@ const ShowDetails = ({ route }) => {
           </Text>
           <Image
             alignSelf="center"
-            source={{ uri: `${IMAGE_BASE_URL}${details.poster_path}` }}
+            source={
+              details.poster_path
+                ? { uri: `${IMAGE_BASE_URL}${details.poster_path}` }
+                : placeholder
+            }
             alt="movie"
             size="2xl"
           />
