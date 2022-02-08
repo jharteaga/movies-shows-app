@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex, HStack, Icon, Text } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
+import { colors } from '../../config/colors'
 
 const PageControl = ({ onChangeRange, onChangePage, page, totalPages = 2 }) => {
   const handleChange = (newPage) => {
@@ -16,7 +17,7 @@ const PageControl = ({ onChangeRange, onChangePage, page, totalPages = 2 }) => {
       <TouchableOpacity onPress={() => handleChange(page - 1)}>
         <HStack
           borderWidth={1}
-          borderColor="blueGray.400"
+          borderColor={colors.BLUE_GRAY}
           borderRadius={12}
           pt={1.5}
           pr={2.5}
@@ -24,7 +25,7 @@ const PageControl = ({ onChangeRange, onChangePage, page, totalPages = 2 }) => {
           <Icon
             as={Ionicons}
             size="9"
-            color="blueGray.400"
+            color={colors.BLUE_GRAY}
             name="chevron-back-outline"
           />
           <Text fontSize={15} mt={0.5} bold>
@@ -38,7 +39,7 @@ const PageControl = ({ onChangeRange, onChangePage, page, totalPages = 2 }) => {
       <TouchableOpacity onPress={() => handleChange(page + 1)}>
         <HStack
           borderWidth={1}
-          borderColor="blueGray.400"
+          borderColor={colors.BLUE_GRAY}
           borderRadius={12}
           pt={1.5}
           pl={2.5}
@@ -49,7 +50,7 @@ const PageControl = ({ onChangeRange, onChangePage, page, totalPages = 2 }) => {
           <Icon
             as={Ionicons}
             size="9"
-            color="blueGray.400"
+            color={colors.BLUE_GRAY}
             name="chevron-forward-outline"
           />
         </HStack>

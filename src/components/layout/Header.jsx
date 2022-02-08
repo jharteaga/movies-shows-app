@@ -1,19 +1,20 @@
 import React from 'react'
 import { Box, HStack, StatusBar, Text } from 'native-base'
+import { colors } from '../../config/colors'
 
 const Header = () => {
   return (
     <>
-      <StatusBar backgroundColor="#2c3e50" barStyle="light-content" />
-      <Box safeAreaTop backgroundColor="#2c3e50">
+      <StatusBar backgroundColor={colors.DARK_BLUE} barStyle="light-content" />
+      <Box safeAreaTop backgroundColor={colors.DARK_BLUE}>
         <HStack
-          bg="#2c3e50"
+          bg={colors.DARK_BLUE}
           px={1}
           py={3}
           alignItems="center"
           justifyContent="center"
         >
-          <Text color="#fff" fontSize={20} fontWeight="bold">
+          <Text color={colors.WHITE} fontSize={20} fontWeight="bold">
             Movies App
           </Text>
         </HStack>

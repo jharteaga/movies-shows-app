@@ -3,6 +3,7 @@ import { LogBox } from 'react-native'
 import { Box, Button, HStack, Icon, Input, Text } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
 import FilterSelector from './FilterSelector'
+import { colors } from '../../config/colors'
 
 LogBox.ignoreLogs(['NativeBase:'])
 
@@ -23,30 +24,30 @@ const SearchForm = ({ onSubmit }) => {
   return (
     <>
       <Text mb={2}>
-        Search Movie/TV Show<Text style={{ color: 'red' }}>*</Text>
+        Search Movie/TV Show<Text style={{ color: colors.RED }}>*</Text>
       </Text>
       <Input
         size="md"
         w="90%"
-        backgroundColor="#e4e4e7"
+        backgroundColor={colors.LIGHT_GRAY}
         InputLeftElement={
           <Icon
             as={<Ionicons name="search" />}
             size={5}
             ml="2"
-            color="#a9a9a9"
+            color={colors.DARK_GRAY}
           />
         }
         placeholder="i.e. James Bond, CSI"
-        placeholderTextColor="#a9a9a9"
+        placeholderTextColor={colors.DARK_GRAY}
         onChangeText={(text) => setQuery(text)}
         isRequired
         borderWidth={1}
-        borderColor={errorMsg ? 'red.600' : '#e4e4e7'}
+        borderColor={errorMsg ? colors.TOMATO : colors.LIGHT_GRAY}
       />
 
       <Text mt={3}>
-        Choose Search Type<Text style={{ color: 'red' }}>*</Text>
+        Choose Search Type<Text style={{ color: colors.RED }}>*</Text>
       </Text>
       <HStack space={5} mt={1} mr={7}>
         <Box w="2/4">
@@ -68,7 +69,7 @@ const SearchForm = ({ onSubmit }) => {
           </Button>
         </Box>
       </HStack>
-      <Text color={'red.600'} mt={2}>
+      <Text color={colors.TOMATO} mt={2}>
         {errorMsg}
       </Text>
     </>

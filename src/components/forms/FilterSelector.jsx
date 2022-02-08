@@ -1,6 +1,7 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { CheckIcon, Icon, Select } from 'native-base'
+import { colors } from '../../config/colors'
 
 const options = {
   movie: ['now_playing', 'popular', 'top_rated', 'upcoming'],
@@ -11,18 +12,18 @@ const options = {
 const FilterSelector = ({ onChange, selected, type, isError }) => {
   return (
     <Select
-      borderColor={isError ? 'red.600' : '#e4e4e7'}
+      borderColor={isError ? colors.TOMATO : colors.LIGHT_GRAY}
       selectedValue={selected}
       fontSize={16}
       minWidth="130"
       _selectedItem={{
-        backgroundColor: '#23776d',
-        _text: { color: '#fff' },
-        endIcon: <CheckIcon size="5" color="#fff" />
+        backgroundColor: colors.GREEN,
+        _text: { color: colors.WHITE },
+        endIcon: <CheckIcon size="5" color={colors.WHITE} />
       }}
       onValueChange={(itemSelected) => onChange(itemSelected)}
       dropdownIcon={
-        <Icon as={Ionicons} size="5" color="gray.500" name="chevron-down" />
+        <Icon as={Ionicons} size="5" color={colors.GRAY} name="chevron-down" />
       }
     >
       {options[type].map((item, index) => (
