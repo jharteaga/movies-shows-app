@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Box, Center, Text } from 'native-base'
 import CardsList from '../lists/CardsList'
 import Loading from '../layout/Loading'
-import { getMovies, searchMovies } from '../../services/moviesApi'
+import { getMedias, searchMedia } from '../../services/mediaApi'
 import CardContainer from './CardContainer'
 
 const CardsContainer = ({ type, selected, query = '' }) => {
@@ -11,10 +11,10 @@ const CardsContainer = ({ type, selected, query = '' }) => {
 
   const getData = async (type) => {
     if (type !== 'search') {
-      const response = await getMovies(type, selected)
+      const response = await getMedias(type, selected)
       setData(response.results)
     } else {
-      const response = await searchMovies(selected, query)
+      const response = await searchMedia(selected, query)
       setData(response.results)
     }
   }

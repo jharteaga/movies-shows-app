@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Image, ScrollView, Text } from 'native-base'
 import { IMAGE_BASE_URL } from '../config/apiConfig'
-import { getMovie } from '../services/moviesApi'
+import { getMedia } from '../services/mediaApi'
 const placeholder = require('../../assets/no-image-thumb.jpeg')
 
 const ShowDetails = ({ route }) => {
@@ -9,7 +9,7 @@ const ShowDetails = ({ route }) => {
   const { id, type } = route.params
 
   const callApi = async () => {
-    const response = await getMovie(type, id)
+    const response = await getMedia(type, id)
     setDetails(response)
   }
 
