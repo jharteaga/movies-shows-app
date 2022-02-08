@@ -5,11 +5,12 @@ import CardsContainer from '../components/containers/CardsContainer'
 
 const SearchScreen = () => {
   const [formData, setFormData] = useState({})
+  const [newSearch, setNewSearch] = useState(false)
 
   return (
     <>
       <Box py={5} ml={8}>
-        <SearchForm onSubmit={setFormData} />
+        <SearchForm onSubmit={setFormData} onReset={setNewSearch} />
         {!formData?.query && (
           <Center mt={20}>
             <Text fontSize={20} bold ml={-8}>
@@ -23,6 +24,7 @@ const SearchScreen = () => {
           selected={formData.selected}
           type="search"
           query={formData.query}
+          onReset={newSearch}
         />
       )}
     </>

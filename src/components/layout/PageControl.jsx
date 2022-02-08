@@ -4,11 +4,14 @@ import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
 import { colors } from '../../config/colors'
 
-const PageControl = ({ onChangeRange, onChangePage, page, totalPages = 2 }) => {
+const PageControl = ({ onChangeRange, page, totalPages = 2 }) => {
   const handleChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      onChangeRange({ min: (newPage - 1) * 10, max: newPage * 10 })
-      onChangePage(newPage)
+      onChangeRange({
+        min: (newPage - 1) * 10,
+        max: newPage * 10,
+        page: newPage
+      })
     }
   }
 

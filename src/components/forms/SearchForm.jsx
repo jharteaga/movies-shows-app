@@ -7,7 +7,7 @@ import { colors } from '../../config/colors'
 
 LogBox.ignoreLogs(['NativeBase:'])
 
-const SearchForm = ({ onSubmit }) => {
+const SearchForm = ({ onSubmit, onReset }) => {
   const [selected, setSelected] = useState('multi')
   const [query, setQuery] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
@@ -15,6 +15,7 @@ const SearchForm = ({ onSubmit }) => {
   const handleSubmit = () => {
     if (query.trim()) {
       setErrorMsg('')
+      onReset((prev) => !prev)
       onSubmit({ query, selected })
     } else {
       setErrorMsg('Movie/TV show name is required')

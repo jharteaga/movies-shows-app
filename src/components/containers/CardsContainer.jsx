@@ -6,10 +6,9 @@ import { getMedias, searchMedia } from '../../services/mediaApi'
 import CardContainer from './CardContainer'
 import PageControl from '../layout/PageControl'
 
-const CardsContainer = ({ type, selected, query = '' }) => {
+const CardsContainer = ({ type, selected, query = '', onReset }) => {
   const [data, setData] = useState([])
-  const [range, setRange] = useState({ min: 0, max: 10 })
-  const [page, setPage] = useState(1)
+  const [range, setRange] = useState({ min: 0, max: 10, page: 1 })
   const [loading, setLoading] = useState(false)
 
   const getData = async (type) => {
@@ -40,17 +39,18 @@ const CardsContainer = ({ type, selected, query = '' }) => {
     getData(type).then(() => setLoading(false))
   }, [selected, query, range])
 
+  //Event when new search is initiated
+  useEffect(() => {
+    setRange({ min: 0, max: 10, page: 1 })
+  }, [onReset])
+
   return (
     <Box style={{ flex: 1 }}>
       {loading ? (
         <Loading />
       ) : data.length ? (
         <>
-          <PageControl
-            onChangeRange={setRange}
-            onChangePage={setPage}
-            page={page}
-          />
+          <PageControl onChangeRange={setRange} page={range.page} />
           <CardsList data={data} render={renderCardContainer} />
         </>
       ) : (
