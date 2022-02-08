@@ -15,7 +15,7 @@ const CardsContainer = ({ type, selected, query = '' }) => {
       setData(response.results)
     } else {
       const response = await searchMedia(selected, query)
-      setData(response.results)
+      setData(response)
     }
   }
 

@@ -22,10 +22,17 @@ export const getMedia = async (type, id) => {
 
 export const searchMedia = async (selected, query) => {
   try {
-    const response = await apiAxios.get(`/search/${selected}`, {
+    let response = await apiAxios.get(`/search/${selected}`, {
       params: { ...params, query }
     })
-    return response.data
+
+    //Filter out the media object that represents a person
+    if (selected === 'multi')
+      response = response.data.results.filter(
+        (item) => item['media_type'] !== 'person'
+      )
+
+    return response
   } catch (error) {
     console.error(error)
     throw error
